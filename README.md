@@ -27,21 +27,29 @@ Instructions:
 5. Technical Architecture
 
 - Frontend: A static HTML, CSS, and JavaScript form hosted on GitHub Pages.
-
 - Backend: A Python Flask API running as a serverless container on Google Cloud Run.
-
 - Security: All API credentials and keys are securely stored and managed using Google Secret Manager.
 
 - Deployment: The backend is deployed via the Google Cloud CLI, and the frontend is hosted directly from the Git repository.
 
+5.1 Open Google Cloud SDK Shell
+5.2 Authenticate: gcloud auth login
+5.3 Set your default project: gcloud config set project [YOUR_PROJECT_ID]
+5.4 Set your default region: gcloud config set run/region [YOUR_REGION]
+5.5 Navigate to the project's root folder
+5.6 Run deployment command: gcloud run deploy [SERVICE_NAME] --source . --region [REGION] --allow-unauthenticated --service-account="[SERVICE_ACCOUNT_NAME]@[YOUR_PROJECT_ID].iam.gserviceaccount.com" --set-secrets="env:GLOBOSAT_API_KEY=GLOBOSAT_API_KEY:latest,env:GLOBOSAT_CLIENT_SECRET=GLOBOSAT_CLIENT_SECRET:latest,env:GLOBOSAT_CLIENT_ID=GLOBOSAT_CLIENT_ID:latest,env:GLOBOSAT_RESOURCE=GLOBOSAT_RESOURCE:latest"
+
+[SERVICE_NAME]: The name of your Cloud Run service.
+[REGION]: The Google Cloud region where your service is deployed.
+[SERVICE_ACCOUNT_NAME]: The name of the dedicated service account you created.
+[YOUR_PROJECT_ID]: The unique ID of your Google Cloud project.
+
+5.4 To update the Frontend, go to the project repository and upload "index.html", "style.css" and "script.js", which should overwrite old versions.
+
 6. Future Improvements
 
 - Update the URL to a custom domain.
-
 - Implement Google Analytics to track Exporter usage and popular channels.
-
 - Implement routines to ensure the channels on the lookup table are being updated.
-
 - Set up automated deployments using GitHub Actions.
-
 - Restrict access to users within the organization using Google Cloud IAM.
