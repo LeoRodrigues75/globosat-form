@@ -62,7 +62,7 @@ select {
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 6px;
-    font-size: 1em;
+    font-size: 16px;
     box-sizing: border-box;
     transition: border-color 0.3s;
 }
@@ -109,6 +109,11 @@ h2 {
     padding: 12px;
     border: 1px solid #ddd;
     text-align: left;
+}
+
+.channel-table th:first-child,
+.channel-table td:first-child {
+    width: 45%;
 }
 
 .channel-table th {

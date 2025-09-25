@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- IMPORTANT: UPDATE THIS URL ---
     const backendBaseUrl = 'https://globosat-api-project-460362937255.southamerica-east1.run.app/';
-    // ---------------------------------
 
     const form = document.getElementById('grid-form');
     const environmentSelect = document.getElementById('environment');
